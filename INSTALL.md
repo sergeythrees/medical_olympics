@@ -46,13 +46,17 @@ Docker CLI 29.8.2 + Docker Compose 5.6.0, **gcloud нет**.
 ## 3. Быстрый старт: Docker Compose
 
 ```bash
-cp backend/.env.example backend/.env   # вписать DEEPSEEK_API_KEY, если нужен /extract
+[ -f backend/.env ] || cp backend/.env.example backend/.env   # НЕ перезаписывайте существующий .env: в нём ключ
 docker compose up -d --build
 docker compose ps
 docker compose logs -f api
 docker compose down          # остановить
 docker compose down -v       # остановить и снести
 ```
+
+> **Проверьте ключ после копирования шаблона.** `cp .env.example .env` затирает рабочую копию:
+> если в файле остались строки вида `DEEPSEEK_API_KEY=` с пустым значением, `POST /extract` будет
+> отвечать **503**. Быстрая проверка: `grep -c '^DEEPSEEK_API_KEY=sk-' backend/.env` должен вернуть `1`.
 
 - http://localhost:3000 — фронтенд (4 демо-кейса)
 - http://localhost:8000/docs — Swagger API
@@ -65,7 +69,23 @@ interval 2s, retries 20) → одноразовый `migrate` (`alembic upgrade 
 `api` (ждёт `service_completed_successfully` от `migrate`) → `web`. `backend/.env` подключён как
 **необязательный** (`required: false`): без него стек поднимется, а `/extract` будет отдавать 503.
 
-### 3.1. Если Docker ещё не настроен (Linux)
+### 3.1. Не смешивайте два способа запуска
+
+Compose и локальный запуск (§4) занимают **одни и те же порты** `5432`, `8000`, `3000`. Перед
+`docker compose up` убедитесь, что их никто не держит:
+
+```bash
+ss -ltnp | grep -E ':(5432|8000|3000)'
+docker ps --format '{{.Names}}\t{{.Ports}}'
+```
+
+Самая частая причина «загадочных» падений: параллельно работает контейнер `cases-db` из §4.1 или
+локальный `uvicorn`. Если хост-порт занят, Docker **всё равно запускает** контейнер, но без сети
+(`docker compose ps` показывает `Up`, а колонка `PORTS` пустая) — и `migrate` падает с
+`failed to resolve host 'db'`. Лечение: освободить порт и пересоздать стек
+(`docker compose down && docker compose up -d`, см. §10).
+
+### 3.2. Если Docker ещё не настроен (Linux)
 
 Диагностика:
 
@@ -109,17 +129,25 @@ sudo systemctl enable docker   # по умолчанию обычно disabled
 docker run -d --name cases-db -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=cases -p 5432:5432 postgres:17-alpine
 ```
 
+> Контейнер `cases-db` публикует **тот же порт 5432**, что и сервис `db` в compose. Перед возвратом
+> к варианту §3 остановите его: `docker stop cases-db` (данные сохранятся, позже — `docker start cases-db`).
+> Если запустить оба, compose-сервис `db` стартует без сети и `migrate` упадёт (см. §3.1 и §10).
+
 ### 4.2. Backend
 
 ```bash
 cd backend
 uv sync --frozen
-cp .env.example .env
+[ -f .env ] || cp .env.example .env   # не перезаписывайте существующий .env с ключом
 export DATABASE_URL="postgresql+psycopg://postgres:postgres@localhost:5432/cases"
 uv run alembic upgrade head
 uv run python -m app.seed
 uv run uvicorn app.main:app --host 0.0.0.0 --port 8000
 ```
+
+> Локальный `uvicorn` занимает порт **8000** — тот же, что публикует сервис `api` в compose.
+> Перед `docker compose up` его нужно остановить, иначе `api` не сможет забиндить порт
+> (`failed to bind host port 0.0.0.0:8000/tcp: address already in use`).
 
 - Схема `postgresql+psycopg` **обязательна** — это драйвер psycopg 3, который использует проект.
 - Локально порт **8000** (в контейнере — 8080), потому что фронтенд по умолчанию ждёт
@@ -215,11 +243,15 @@ gcloud builds submit --config deploy/cloudbuild.yaml \
 
 | Симптом | Причина / что делать |
 |---|---|
-| `permission denied … /var/run/docker.sock` | пользователь не в группе `docker` → `sudo usermod -aG docker $USER` + `newgrp docker` (см. §3.1) |
-| `dial unix /var/run/docker.sock: connect: no such file or directory` | демон Docker не запущен — типично после перезагрузки → `sudo systemctl start docker`; автозапуск: `sudo systemctl enable docker` (действует со следующей загрузки, см. §3.1) |
+| `permission denied … /var/run/docker.sock` | пользователь не в группе `docker` → `sudo usermod -aG docker $USER` + `newgrp docker` (см. §3.2) |
+| `dial unix /var/run/docker.sock: connect: no such file or directory` | демон Docker не запущен — типично после перезагрузки → `sudo systemctl start docker`; автозапуск: `sudo systemctl enable docker` (действует со следующей загрузки, см. §3.2) |
 | После перезагрузки контейнеры не поднялись | демон теперь стартует сам, но у сервисов нет политики перезапуска → выполнить `docker compose up -d`; либо добавить сервисам `restart: unless-stopped` |
 | `docker: unknown command: docker compose` | не установлен плагин Compose → поставить `docker-compose-plugin` или использовать `docker-compose` |
 | `POST /extract` → 503 | не заданы креды LLM → вписать `DEEPSEEK_API_KEY` (или Gemini) в `backend/.env` |
+| `/extract` → 503 сразу после `cp .env.example .env` | шаблон затёр рабочий `.env`, значения пустые → вернуть ключ и пересоздать контейнер: `docker compose up -d --force-recreate api`; проверка `grep -c '^DEEPSEEK_API_KEY=sk-' backend/.env` → `1` |
+| `service "migrate" didn't complete successfully: exit 1`, в логе `failed to resolve host 'db'` | хост-порт 5432 занят другим контейнером (`cases-db` из §4.1) → compose-сервис `db` стартовал **без сети**; `docker stop cases-db`, затем `docker compose down && docker compose up -d` |
+| `failed to bind host port 0.0.0.0:8000/tcp: address already in use` | порт 8000 держит локальный `uvicorn` из §4.2 → `ss -ltnp \| grep :8000`, остановить процесс, затем `docker compose up -d` |
+| `docker compose ps`: сервис `Up`, но колонка `PORTS` пустая и сервис недоступен | контейнер поднялся без сети из-за конфликта портов → `journalctl -u docker --since -10m \| grep -i "Failed to allocate port"`, освободить порт и пересоздать стек |
 | API локально не видит БД | проверьте хост (`db` в compose vs `localhost` вне compose) и схему `postgresql+psycopg` |
 | `api` не стартует в compose | он ждёт успешного `migrate` → смотреть `docker compose logs migrate` |
 | Сид ничего не добавил | в `cases` уже есть строки — seed пропускает работу (это by design) |
@@ -250,6 +282,14 @@ docker compose):
 | `pnpm test` | 4 passed |
 | `docker compose up -d --build` | db healthy, migrate Exited 0, api Up `8000->8080`, web Up `3000`, http://localhost:3000/ → 200 со всеми 4 кейсами, `/cases/1` → 200 |
 | **Не проверялось** | деплой в GCP (нет gcloud и проекта) |
+
+Дополнительно **после переноса проекта в `~/git/medical_olympics`** (compose-проект
+`medical_olympics`): устранены два конфликта портов — `5432` держал контейнер `cases-db` из §4.1
+(из-за этого `migrate` падал с `failed to resolve host 'db'`), `8000` держал локальный `uvicorn`.
+После `docker stop cases-db` и остановки `uvicorn`: `db`/`api`/`web` получили сеть
+(`medical_olympics_default`, IP `172.19.0.2–4`) и проброс портов, `migrate` → "exit 0" с сидом
+4 кейсов, `GET /health` → 200, http://localhost:3000/ → 200, `/extract` → 200 (ключ восстановлен
+в `backend/.env`).
 
 ## 12. Полезные ссылки
 
