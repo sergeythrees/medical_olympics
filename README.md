@@ -28,22 +28,17 @@
 ## Запуск
 
 ```bash
-docker compose up --build
+docker compose up -d --build
 ```
 
 - http://localhost:3000 — фронтенд (4 демо-кейса уже в БД)
 - http://localhost:8000/docs — Swagger API
 - `POST /extract` (LLM) работает, если в `backend/.env` задан `DEEPSEEK_API_KEY` или Gemini (см. [backend/.env.example](backend/.env.example)); без ключа отвечает 503.
 
-Тесты:
-
-```bash
-docker compose up -d db
-cd backend && uv sync && TEST_DATABASE_URL=postgresql+psycopg://postgres:postgres@localhost:5432/cases_test uv run pytest
-cd frontend && pnpm install && pnpm test && pnpm typecheck
-```
-
-Тестовая БД `cases_test` создаётся автоматически. Те же шаги — в [CI](.github/workflows/ci.yml).
+Всё остальное про запуск — в **[INSTALL.md](INSTALL.md)**: требования и версии, переменные
+окружения, запуск без Docker, тесты и линт, прогон evals, настройка Docker на Linux и разбор
+типичных ошибок (занят порт 5432/8000, `migrate` упал, `/extract` → 503). Линт, тесты и сборка
+выполняются в [CI](.github/workflows/ci.yml).
 
 ## Структура
 
@@ -112,7 +107,8 @@ cases ─┬─< case_findings          (осмотр, анализы, ЭКГ, �
 | `GET /cases/{id}/leaderboard` | рейтинг по кейсу |
 | `POST /extract` | сырой текст → черновик `CaseIn` (задание 3) |
 
-Миграции: `alembic upgrade head` / `downgrade base` (рабочий downgrade проверяется тестом).
+Миграции Alembic поднимают схему до последней ревизии и откатывают до пустой (рабочий откат
+проверяется тестом); команды — в [INSTALL.md](INSTALL.md), раздел 4.2.
 
 ## 2. Frontend: Next.js (App Router) + TypeScript
 
@@ -162,11 +158,9 @@ Golden-набор — 4 кейса разных специальностей (Т
 САК, ДКА): сырой текст (`*.txt`, с сокращениями, смешанной записью единиц и отрицаниями) +
 эталонная разметка (`*.json`). Эти же эталоны — демо-данные в БД.
 
-```bash
-cd backend
-uv run python -m evals.run                                   # прогон модели → evals/runs/<run>/ (ответы + report.json)
-uv run python -m evals.run --predictions evals/runs/<run>    # пересчёт метрик по сохранённым ответам, без LLM
-```
+Команды прогона (живой вызов модели и офлайн-пересчёт метрик по сохранённым ответам) и требования
+к кредам LLM — в [INSTALL.md](INSTALL.md), раздел 7. Ниже — что именно измеряется и что харнес
+нашёл по дороге.
 
 | метрика | что ловит | gate |
 |---|---|---|
@@ -209,9 +203,11 @@ uv run python -m evals.run --predictions evals/runs/<run>    # пересчёт 
 
 ### Docker и Cloud Run
 
-Образ backend ([Dockerfile](backend/Dockerfile)) — один на API и миграции. Описание деплоя
-(Cloud Run + Cloud SQL через unix-сокет, Secret Manager, Vertex AI по service account,
-миграции как Cloud Run Job, Cloud Build-пайплайн): **[deploy/README.md](deploy/README.md)**.
+Образ backend ([Dockerfile](backend/Dockerfile)) — один на API и миграции: тот же образ запускает
+uvicorn и выполняет миграции в отдельном одноразовом шаге (в compose — сервис
+`migrate`, в GCP — Cloud Run Job). Локальный стек и его сервисы — [INSTALL.md](INSTALL.md),
+раздел 3; деплой (Cloud Run + Cloud SQL через unix-сокет, Secret Manager, Vertex AI по service
+account, Cloud Build-пайплайн) — **[deploy/README.md](deploy/README.md)**.
 
 ---
 
