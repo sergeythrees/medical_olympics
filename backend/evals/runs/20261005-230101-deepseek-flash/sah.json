@@ -1,0 +1,118 @@
+{
+  "title": "Worst headache of her life",
+  "patient": {
+    "age": 48,
+    "sex": "female"
+  },
+  "presenting_complaint": "Sudden, severe occipital headache that developed while at the gym 2 hours ago and peaked within a minute — \"like being hit with a bat\". She vomited twice.",
+  "history": "No loss of consciousness, no seizure, no head trauma. Past medical history: hypertension, poorly controlled, on amlodipine. Smokes. Mother died of a \"brain bleed\" at 52. Not on anticoagulants or antiplatelets.",
+  "vitals": {
+    "heart_rate": 64,
+    "systolic_bp": 182,
+    "diastolic_bp": 104,
+    "respiratory_rate": 16,
+    "temperature_c": 37.4,
+    "spo2": 98
+  },
+  "findings": [
+    {
+      "kind": "exam",
+      "name": "Neurological examination",
+      "value": "GCS 15, pupils equal and reactive, no focal neurological deficit"
+    },
+    {
+      "kind": "exam",
+      "name": "Meningeal signs",
+      "value": "Photophobia present, neck stiffness present, Kernig sign negative"
+    },
+    {
+      "kind": "exam",
+      "name": "Fundoscopy",
+      "value": "No papilloedema"
+    },
+    {
+      "kind": "imaging",
+      "name": "Non-contrast head CT (2 hours from onset)",
+      "value": "Hyperdense blood in the basal cisterns and the Sylvian fissures"
+    },
+    {
+      "kind": "imaging",
+      "name": "CT angiography",
+      "value": "7 mm aneurysm of the anterior communicating artery"
+    },
+    {
+      "kind": "lab",
+      "name": "Platelets",
+      "value": "245 ×10^9/L"
+    },
+    {
+      "kind": "lab",
+      "name": "INR",
+      "value": "1.0"
+    },
+    {
+      "kind": "lab",
+      "name": "Sodium",
+      "value": "139 mmol/L"
+    }
+  ],
+  "diagnosis_options": [
+    {
+      "label": "Subarachnoid haemorrhage from a ruptured anterior communicating artery aneurysm",
+      "points": 10,
+      "explanation": "Thunderclap occipital headache peaking within a minute, vomiting, meningism and photophobia, together with hyperdense blood in the basal cisterns and Sylvian fissures on non-contrast CT and a 7 mm anterior communicating artery aneurysm on CT angiography, confirm a ruptured aneurysm causing subarachnoid haemorrhage."
+    },
+    {
+      "label": "Migraine",
+      "points": 0,
+      "explanation": "Migraine can cause severe headache with photophobia and vomiting, but it does not explain the sudden thunderclap onset, the meningism or the subarachnoid blood on CT."
+    },
+    {
+      "label": "Bacterial meningitis",
+      "points": 0,
+      "explanation": "Feverless meningism with a normal temperature of 37.4 °C, no infectious syndrome and subarachnoid blood on CT makes bacterial meningitis incorrect as the primary diagnosis."
+    },
+    {
+      "label": "Hypertensive encephalopathy",
+      "points": 0,
+      "explanation": "Blood pressure is elevated but there is no encephalopathy (GCS 15, no focal deficit, no papilloedema), and the CT findings point to subarachnoid haemorrhage rather than hypertensive encephalopathy."
+    },
+    {
+      "label": "Reversible cerebral vasoconstriction syndrome",
+      "points": 0,
+      "explanation": "Reversible cerebral vasoconstriction syndrome can present with thunderclap headache, but here CT shows subarachnoid blood and CT angiography shows a discrete saccular aneurysm, not diffuse segmental vasoconstriction."
+    }
+  ],
+  "management_options": [
+    {
+      "label": "Urgent neurosurgical / neurointerventional referral for aneurysm securing (coiling or clipping)",
+      "points": 5,
+      "explanation": "Securing the ruptured aneurysm is the essential definitive treatment to prevent rebleeding."
+    },
+    {
+      "label": "Oral nimodipine 60 mg every 4 hours",
+      "points": 5,
+      "explanation": "Nimodipine is indicated to reduce the risk of delayed cerebral ischaemia due to vasospasm after aneurysmal subarachnoid haemorrhage."
+    },
+    {
+      "label": "Control systolic blood pressure below 160 mmHg with a titratable IV agent",
+      "points": 5,
+      "explanation": "Blood pressure control reduces the risk of rebleeding from the unsecured aneurysm while avoiding excessive hypotension that could worsen cerebral perfusion."
+    },
+    {
+      "label": "Analgesia and antiemetic",
+      "points": 2,
+      "explanation": "Symptomatic treatment of headache and vomiting is reasonable but not the essential management of the underlying haemorrhage."
+    },
+    {
+      "label": "Lumbar puncture now",
+      "points": -5,
+      "explanation": "Lumbar puncture is not needed after a diagnostic CT showing subarachnoid haemorrhage and carries a risk of provoking rebleeding."
+    },
+    {
+      "label": "Aspirin",
+      "points": -5,
+      "explanation": "Antiplatelet therapy is harmful in an unsecured ruptured aneurysm because it increases the risk of rebleeding."
+    }
+  ]
+}

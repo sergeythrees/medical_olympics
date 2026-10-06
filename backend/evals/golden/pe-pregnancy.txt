@@ -1,0 +1,32 @@
+Shortness of breath at 34 weeks
+
+A 31-year-old woman, G2P1, 34 weeks pregnant, comes to the emergency department with sudden
+shortness of breath and right-sided pleuritic chest pain that began 3 hours ago while she was
+walking upstairs. No haemoptysis, no fever. She denies calf pain or leg swelling. The pregnancy
+has been uncomplicated; she flew back from a family visit (9-hour flight) five days ago. No
+previous VTE, no known thrombophilia, non-smoker, takes only prenatal vitamins.
+
+On arrival: HR 118/min, BP 104/68 mmHg, RR 26/min, SpO2 91% on room air, T 37.1 °C.
+Alert, anxious, speaking in short sentences. Chest clear on auscultation, no wheeze.
+Legs: no oedema, calves soft and non-tender.
+
+Results:
+- ECG: sinus tachycardia 118/min, S1Q3T3 pattern, T-wave inversion V1–V3.
+- ABG on air: pO2 62 mmHg, pCO2 29 mmHg, pH 7.47.
+- D-dimer 3.8 mg/L (of limited value in the third trimester).
+- Troponin I 0.03 ng/mL (normal).
+- Compression ultrasound of both legs: no DVT.
+- Bedside echo: dilated right ventricle, normal LV function.
+- CTPA (with abdominal shielding): filling defects in the right lower lobe segmental arteries.
+
+Answer key.
+Final diagnosis: pulmonary embolism.
+Differentials to offer: peripartum cardiomyopathy, community-acquired pneumonia, amniotic fluid
+embolism, spontaneous pneumothorax.
+Management:
+- therapeutic low-molecular-weight heparin, weight-adjusted — essential;
+- oxygen to keep SpO2 at 94% or above — essential;
+- urgent obstetric review and fetal monitoring — essential;
+- warfarin — contraindicated in pregnancy (teratogenic), harmful;
+- rivaroxaban or another DOAC — contraindicated in pregnancy, harmful;
+- systemic thrombolysis — not indicated in a haemodynamically stable patient, harmful.

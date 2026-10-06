@@ -1,0 +1,133 @@
+{
+  "title": "Vomiting student with type 1 diabetes",
+  "patient": {
+    "age": 19,
+    "sex": "male"
+  },
+  "presenting_complaint": "Two days of vomiting and abdominal pain, with increasing thirst and polyuria.",
+  "history": "19-year-old male university student with type 1 diabetes since age 11, on basal-bolus insulin. Two days of vomiting and abdominal pain; he stopped his insulin because he \"wasn't eating\". Increasing thirst and polyuria. No diarrhoea. Denies alcohol or drug use. No known drug allergies.",
+  "vitals": {
+    "heart_rate": 124,
+    "systolic_bp": 98,
+    "diastolic_bp": 60,
+    "respiratory_rate": 30,
+    "temperature_c": 36.9,
+    "spo2": 99
+  },
+  "findings": [
+    {
+      "kind": "exam",
+      "name": "Neurological examination",
+      "value": "drowsy but rousable, GCS 14"
+    },
+    {
+      "kind": "exam",
+      "name": "Hydration status and peripheral perfusion",
+      "value": "dry mucous membranes, capillary refill 4 s"
+    },
+    {
+      "kind": "exam",
+      "name": "Respiratory examination",
+      "value": "deep sighing breathing, ketotic breath"
+    },
+    {
+      "kind": "exam",
+      "name": "Abdominal examination",
+      "value": "diffusely tender, soft, no guarding"
+    },
+    {
+      "kind": "lab",
+      "name": "Venous blood gas",
+      "value": "pH 7.08, bicarbonate 7 mmol/L, glucose 28.4 mmol/L, potassium 5.6 mmol/L, lactate 2.1 mmol/L"
+    },
+    {
+      "kind": "lab",
+      "name": "Blood ketones",
+      "value": "6.2 mmol/L"
+    },
+    {
+      "kind": "lab",
+      "name": "Sodium",
+      "value": "131 mmol/L"
+    },
+    {
+      "kind": "lab",
+      "name": "Urea",
+      "value": "11 mmol/L"
+    },
+    {
+      "kind": "lab",
+      "name": "Creatinine",
+      "value": "142 µmol/L"
+    },
+    {
+      "kind": "lab",
+      "name": "Lipase",
+      "value": "normal"
+    },
+    {
+      "kind": "lab",
+      "name": "Urinalysis",
+      "value": "ketones 3+, no nitrites or leukocytes"
+    }
+  ],
+  "diagnosis_options": [
+    {
+      "label": "Diabetic ketoacidosis",
+      "points": 10,
+      "explanation": "Hyperglycaemia with ketonaemia, a high anion gap metabolic acidosis (pH 7.08, bicarbonate 7 mmol/L) and precipitating insulin omission in a patient with type 1 diabetes; abdominal pain, vomiting, Kussmaul breathing and ketotic breath are typical."
+    },
+    {
+      "label": "Hyperosmolar hyperglycaemic state",
+      "points": 2,
+      "explanation": "Hyperglycaemia is right, but this is ketoacidosis: blood ketones 6.2 mmol/L with a marked metabolic acidosis, which is not characteristic of HHS."
+    },
+    {
+      "label": "Acute pancreatitis",
+      "points": 0,
+      "explanation": "Abdominal pain and vomiting could suggest it, but lipase is normal and the picture is fully explained by ketoacidosis."
+    },
+    {
+      "label": "Gastroenteritis",
+      "points": 0,
+      "explanation": "Vomiting and abdominal pain are present, but there is no diarrhoea and the gas, ketone and glucose results indicate ketoacidosis."
+    },
+    {
+      "label": "Sepsis from urinary tract infection",
+      "points": 0,
+      "explanation": "Tachycardia and hypotension could fit, but temperature is normal, urinalysis shows no nitrites or leukocytes, and the metabolic picture is that of ketoacidosis."
+    }
+  ],
+  "management_options": [
+    {
+      "label": "IV 0.9% saline resuscitation",
+      "points": 5,
+      "explanation": "Essential first step: the patient is dehydrated with capillary refill 4 s and hypotension."
+    },
+    {
+      "label": "Fixed-rate IV insulin infusion 0.1 units/kg/h",
+      "points": 5,
+      "explanation": "Essential for closing the ketone gap and correcting the acidosis."
+    },
+    {
+      "label": "Continue long-acting basal insulin",
+      "points": 2,
+      "explanation": "Should be continued alongside the infusion to avoid rebound ketogenesis once the infusion is stopped."
+    },
+    {
+      "label": "Potassium replacement guided by hourly levels once K+ falls below 5.5 mmol/L",
+      "points": 5,
+      "explanation": "Essential: total body potassium is depleted and levels fall rapidly with insulin, so replacement is required once K+ is below 5.5 mmol/L."
+    },
+    {
+      "label": "IV sodium bicarbonate",
+      "points": -5,
+      "explanation": "Not recommended at this pH; it is harmful and does not improve outcomes in ketoacidosis."
+    },
+    {
+      "label": "Insulin bolus plus variable-rate sliding scale instead of a fixed-rate infusion",
+      "points": -5,
+      "explanation": "Harmful: bolus dosing with a sliding scale is not the recommended regimen in ketoacidosis; a fixed-rate weight-based infusion is required."
+    }
+  ]
+}

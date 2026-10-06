@@ -1,0 +1,299 @@
+{
+  "$defs": {
+    "DiagnosisOption": {
+      "properties": {
+        "label": {
+          "maxLength": 300,
+          "minLength": 1,
+          "title": "Label",
+          "type": "string"
+        },
+        "points": {
+          "description": "10 = correct diagnosis, 1-5 = partially correct, 0 = wrong.",
+          "maximum": 10,
+          "minimum": 0,
+          "title": "Points",
+          "type": "integer"
+        },
+        "explanation": {
+          "anyOf": [
+            {
+              "maxLength": 2000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Why it is (in)correct. Shown after answering.",
+          "title": "Explanation"
+        }
+      },
+      "required": [
+        "label",
+        "points"
+      ],
+      "title": "DiagnosisOption",
+      "type": "object"
+    },
+    "Finding": {
+      "properties": {
+        "kind": {
+          "enum": [
+            "exam",
+            "lab",
+            "imaging",
+            "ecg",
+            "other"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "name": {
+          "description": "What was examined or measured, e.g. 'Troponin I'.",
+          "maxLength": 300,
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
+        "value": {
+          "description": "Result with units, e.g. '2.1 ng/mL' or 'ST elevation II, III, aVF'.",
+          "maxLength": 300,
+          "minLength": 1,
+          "title": "Value",
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "name",
+        "value"
+      ],
+      "title": "Finding",
+      "type": "object"
+    },
+    "ManagementOption": {
+      "properties": {
+        "label": {
+          "maxLength": 300,
+          "minLength": 1,
+          "title": "Label",
+          "type": "string"
+        },
+        "points": {
+          "description": "Positive = indicated (5 essential), 0 = neutral, negative = harmful (-5).",
+          "maximum": 10,
+          "minimum": -10,
+          "title": "Points",
+          "type": "integer"
+        },
+        "explanation": {
+          "anyOf": [
+            {
+              "maxLength": 2000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Explanation"
+        }
+      },
+      "required": [
+        "label",
+        "points"
+      ],
+      "title": "ManagementOption",
+      "type": "object"
+    },
+    "Patient": {
+      "properties": {
+        "age": {
+          "description": "Age in full years.",
+          "maximum": 120,
+          "minimum": 0,
+          "title": "Age",
+          "type": "integer"
+        },
+        "sex": {
+          "enum": [
+            "female",
+            "male"
+          ],
+          "title": "Sex",
+          "type": "string"
+        }
+      },
+      "required": [
+        "age",
+        "sex"
+      ],
+      "title": "Patient",
+      "type": "object"
+    },
+    "Vitals": {
+      "description": "Vital signs at presentation. Null when not stated in the source.",
+      "properties": {
+        "heart_rate": {
+          "anyOf": [
+            {
+              "maximum": 300,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Beats per minute.",
+          "title": "Heart Rate"
+        },
+        "systolic_bp": {
+          "anyOf": [
+            {
+              "maximum": 300,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "mmHg.",
+          "title": "Systolic Bp"
+        },
+        "diastolic_bp": {
+          "anyOf": [
+            {
+              "maximum": 200,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "mmHg.",
+          "title": "Diastolic Bp"
+        },
+        "respiratory_rate": {
+          "anyOf": [
+            {
+              "maximum": 80,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Breaths per minute.",
+          "title": "Respiratory Rate"
+        },
+        "temperature_c": {
+          "anyOf": [
+            {
+              "maximum": 45,
+              "minimum": 25,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Degrees Celsius.",
+          "title": "Temperature C"
+        },
+        "spo2": {
+          "anyOf": [
+            {
+              "maximum": 100,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Oxygen saturation, %.",
+          "title": "Spo2"
+        }
+      },
+      "title": "Vitals",
+      "type": "object"
+    }
+  },
+  "description": "A clinical case with answer key, as written by a case author.",
+  "properties": {
+    "title": {
+      "maxLength": 300,
+      "minLength": 1,
+      "title": "Title",
+      "type": "string"
+    },
+    "patient": {
+      "$ref": "#/$defs/Patient"
+    },
+    "presenting_complaint": {
+      "maxLength": 4000,
+      "minLength": 1,
+      "title": "Presenting Complaint",
+      "type": "string"
+    },
+    "history": {
+      "description": "History of present illness, past history, medications.",
+      "maxLength": 4000,
+      "minLength": 1,
+      "title": "History",
+      "type": "string"
+    },
+    "vitals": {
+      "$ref": "#/$defs/Vitals"
+    },
+    "findings": {
+      "items": {
+        "$ref": "#/$defs/Finding"
+      },
+      "maxItems": 100,
+      "title": "Findings",
+      "type": "array"
+    },
+    "diagnosis_options": {
+      "items": {
+        "$ref": "#/$defs/DiagnosisOption"
+      },
+      "maxItems": 20,
+      "minItems": 2,
+      "title": "Diagnosis Options",
+      "type": "array"
+    },
+    "management_options": {
+      "items": {
+        "$ref": "#/$defs/ManagementOption"
+      },
+      "maxItems": 30,
+      "minItems": 1,
+      "title": "Management Options",
+      "type": "array"
+    }
+  },
+  "required": [
+    "title",
+    "patient",
+    "presenting_complaint",
+    "history",
+    "diagnosis_options",
+    "management_options"
+  ],
+  "title": "CaseIn",
+  "type": "object"
+}

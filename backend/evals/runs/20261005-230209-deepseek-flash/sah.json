@@ -1,0 +1,118 @@
+{
+  "title": "Worst headache of her life",
+  "patient": {
+    "age": 48,
+    "sex": "female"
+  },
+  "presenting_complaint": "Sudden, severe occipital headache that started 2 hours ago at the gym and peaked within a minute — \"like being hit with a bat\". Vomited twice.",
+  "history": "48-year-old female teacher. While at the gym 2 hours ago she developed a sudden, severe occipital headache that peaked within a minute — \"like being hit with a bat\". She vomited twice. No loss of consciousness, no seizure, no head trauma. Past medical history: hypertension, poorly controlled, on amlodipine. Smokes. Mother died of a \"brain bleed\" at 52. Not on anticoagulants or antiplatelets.",
+  "vitals": {
+    "heart_rate": 64,
+    "systolic_bp": 182,
+    "diastolic_bp": 104,
+    "respiratory_rate": 16,
+    "temperature_c": 37.4,
+    "spo2": 98
+  },
+  "findings": [
+    {
+      "kind": "exam",
+      "name": "Neurological examination",
+      "value": "GCS 15, pupils equal and reactive, no focal neurological deficit"
+    },
+    {
+      "kind": "exam",
+      "name": "Meningeal signs",
+      "value": "Photophobia and neck stiffness present; Kernig sign negative"
+    },
+    {
+      "kind": "exam",
+      "name": "Fundoscopy",
+      "value": "No papilloedema"
+    },
+    {
+      "kind": "imaging",
+      "name": "Non-contrast head CT (2 hours from onset)",
+      "value": "Hyperdense blood in the basal cisterns and the Sylvian fissures"
+    },
+    {
+      "kind": "imaging",
+      "name": "CT angiography",
+      "value": "7 mm aneurysm of the anterior communicating artery"
+    },
+    {
+      "kind": "lab",
+      "name": "Platelets",
+      "value": "245 ×10^9/L"
+    },
+    {
+      "kind": "lab",
+      "name": "INR",
+      "value": "1.0"
+    },
+    {
+      "kind": "lab",
+      "name": "Sodium",
+      "value": "139 mmol/L"
+    }
+  ],
+  "diagnosis_options": [
+    {
+      "label": "Subarachnoid haemorrhage from a ruptured anterior communicating artery aneurysm",
+      "points": 10,
+      "explanation": "Thunderclap headache peaking within a minute, vomiting, meningism and photophobia, with hyperdense blood in the basal cisterns and Sylvian fissures on non-contrast CT, plus a 7 mm anterior communicating artery aneurysm on CT angiography."
+    },
+    {
+      "label": "Migraine",
+      "points": 0,
+      "explanation": "Migraine does not cause blood in the basal cisterns or an aneurysm, and rarely presents with sudden peak-within-a-minute headache with meningism."
+    },
+    {
+      "label": "Bacterial meningitis",
+      "points": 0,
+      "explanation": "Fever is minimal and there is no infectious syndrome; the CT shows subarachnoid blood, which meningitis would not explain."
+    },
+    {
+      "label": "Hypertensive encephalopathy",
+      "points": 0,
+      "explanation": "Blood pressure is elevated but there is no encephalopathy (GCS 15, no focal deficit, no papilloedema) and no explanation for subarachnoid blood."
+    },
+    {
+      "label": "Reversible cerebral vasoconstriction syndrome",
+      "points": 0,
+      "explanation": "Can cause thunderclap headache but would not produce subarachnoid blood in the basal cisterns with a saccular aneurysm on angiography."
+    }
+  ],
+  "management_options": [
+    {
+      "label": "Urgent neurosurgical / neurointerventional referral for aneurysm securing (coiling or clipping)",
+      "points": 5,
+      "explanation": "Essential: securing the ruptured aneurysm prevents rebleeding."
+    },
+    {
+      "label": "Oral nimodipine 60 mg every 4 hours",
+      "points": 5,
+      "explanation": "Essential: reduces delayed cerebral ischaemia due to vasospasm after subarachnoid haemorrhage."
+    },
+    {
+      "label": "Control systolic BP below 160 mmHg with a titratable IV agent",
+      "points": 5,
+      "explanation": "Essential: blood pressure control limits the risk of rebleeding while avoiding hypoperfusion."
+    },
+    {
+      "label": "Analgesia and antiemetic",
+      "points": 2,
+      "explanation": "Reasonable symptomatic measure; headache and vomiting are prominent but this does not treat the underlying aneurysm."
+    },
+    {
+      "label": "Lumbar puncture now",
+      "points": -5,
+      "explanation": "Harmful: not needed after a diagnostic CT and risks rebleed."
+    },
+    {
+      "label": "Aspirin",
+      "points": -5,
+      "explanation": "Harmful in an unsecured aneurysm — increases the risk of rebleeding."
+    }
+  ]
+}

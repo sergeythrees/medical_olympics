@@ -1,0 +1,22 @@
+Vomiting student
+
+19 y.o. male university student, type 1 diabetes since age 11 on basal-bolus insulin. Two days of
+vomiting and abdominal pain; he stopped his insulin because he "wasn't eating". Increasing thirst
+and polyuria. No diarrhoea. Denies alcohol or drug use. No known drug allergies.
+
+Exam: drowsy but rousable, GCS 14. Dry mucous membranes, capillary refill 4 s. Deep sighing
+breathing, ketotic breath. Abdomen diffusely tender, soft, no guarding.
+HR 124 bpm; BP 98/60; RR 30; SpO2 99%; temp 36.9 °C.
+
+Venous gas: pH 7.08, bicarbonate 7 mmol/L, glucose 28.4 mmol/L, potassium 5.6 mmol/L,
+lactate 2.1 mmol/L. Blood ketones 6.2 mmol/L. Sodium 131 mmol/L, urea 11 mmol/L,
+creatinine 142 µmol/L. Lipase normal. Urinalysis: ketones 3+, no nitrites or leukocytes.
+
+The correct answer is diabetic ketoacidosis.
+Distractors: hyperosmolar hyperglycaemic state (2 points — hyperglycaemia is right, but
+this is ketoacidosis), acute pancreatitis, gastroenteritis, sepsis from urinary tract infection.
+Expected actions: IV 0.9% saline resuscitation — essential; fixed-rate IV insulin infusion
+0.1 units/kg/h — essential; continue long-acting basal insulin — 2 points; potassium
+replacement guided by hourly levels once K+ falls below 5.5 — essential.
+Wrong actions: IV sodium bicarbonate — not recommended at this pH, harmful; insulin bolus
+plus variable-rate sliding scale instead of a fixed-rate infusion — harmful.

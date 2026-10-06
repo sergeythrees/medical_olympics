@@ -1,0 +1,133 @@
+{
+  "title": "Vomiting student",
+  "patient": {
+    "age": 19,
+    "sex": "male"
+  },
+  "presenting_complaint": "Two days of vomiting and abdominal pain in a young man with type 1 diabetes.",
+  "history": "University student with type 1 diabetes since age 11 on basal-bolus insulin. Stopped his insulin because he was not eating. Increasing thirst and polyuria. No diarrhoea. Denies alcohol or drug use. No known drug allergies.",
+  "vitals": {
+    "heart_rate": 124,
+    "systolic_bp": 98,
+    "diastolic_bp": 60,
+    "respiratory_rate": 30,
+    "temperature_c": 36.9,
+    "spo2": 99
+  },
+  "findings": [
+    {
+      "kind": "exam",
+      "name": "Consciousness",
+      "value": "Drowsy but rousable, GCS 14"
+    },
+    {
+      "kind": "exam",
+      "name": "Hydration",
+      "value": "Dry mucous membranes, capillary refill 4 s"
+    },
+    {
+      "kind": "exam",
+      "name": "Breathing",
+      "value": "Deep sighing (Kussmaul) breathing, ketotic breath"
+    },
+    {
+      "kind": "exam",
+      "name": "Abdomen",
+      "value": "Diffusely tender, soft, no guarding"
+    },
+    {
+      "kind": "lab",
+      "name": "Venous blood gas",
+      "value": "pH 7.08, bicarbonate 7 mmol/L, glucose 28.4 mmol/L, potassium 5.6 mmol/L, lactate 2.1 mmol/L"
+    },
+    {
+      "kind": "lab",
+      "name": "Blood ketones",
+      "value": "6.2 mmol/L"
+    },
+    {
+      "kind": "lab",
+      "name": "Sodium",
+      "value": "131 mmol/L"
+    },
+    {
+      "kind": "lab",
+      "name": "Urea",
+      "value": "11 mmol/L"
+    },
+    {
+      "kind": "lab",
+      "name": "Creatinine",
+      "value": "142 µmol/L"
+    },
+    {
+      "kind": "lab",
+      "name": "Lipase",
+      "value": "Normal"
+    },
+    {
+      "kind": "lab",
+      "name": "Urinalysis",
+      "value": "Ketones 3+, no nitrites or leukocytes"
+    }
+  ],
+  "diagnosis_options": [
+    {
+      "label": "Diabetic ketoacidosis",
+      "points": 10,
+      "explanation": null
+    },
+    {
+      "label": "Hyperosmolar hyperglycaemic state",
+      "points": 2,
+      "explanation": "Hyperglycaemia is right, but this is ketoacidosis."
+    },
+    {
+      "label": "Acute pancreatitis",
+      "points": 0,
+      "explanation": null
+    },
+    {
+      "label": "Gastroenteritis",
+      "points": 0,
+      "explanation": null
+    },
+    {
+      "label": "Sepsis from urinary tract infection",
+      "points": 0,
+      "explanation": null
+    }
+  ],
+  "management_options": [
+    {
+      "label": "IV 0.9% saline resuscitation",
+      "points": 5,
+      "explanation": null
+    },
+    {
+      "label": "Fixed-rate IV insulin infusion 0.1 units/kg/h",
+      "points": 5,
+      "explanation": null
+    },
+    {
+      "label": "Continue long-acting basal insulin",
+      "points": 2,
+      "explanation": null
+    },
+    {
+      "label": "Potassium replacement guided by hourly levels once K+ falls below 5.5",
+      "points": 5,
+      "explanation": null
+    },
+    {
+      "label": "IV sodium bicarbonate",
+      "points": -5,
+      "explanation": "Not recommended at this pH."
+    },
+    {
+      "label": "Insulin bolus plus variable-rate sliding scale instead of a fixed-rate infusion",
+      "points": -5,
+      "explanation": null
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "title": "Crushing chest pain at the dacha",
+  "patient": {
+    "age": 64,
+    "sex": "male"
+  },
+  "presenting_complaint": "Central crushing chest pain radiating to the jaw for 50 minutes, started while chopping wood. Sweaty, nauseated, vomited once.",
+  "history": "Brought by ambulance. Type 2 diabetes on metformin, hypertension on ramipril, smokes 20 cigarettes per day. No prior myocardial infarction. No recent surgery or bleeding, no history of stroke.",
+  "vitals": {
+    "heart_rate": 52,
+    "systolic_bp": 92,
+    "diastolic_bp": 58,
+    "respiratory_rate": 20,
+    "temperature_c": 36.6,
+    "spo2": 95
+  },
+  "findings": [
+    {
+      "kind": "exam",
+      "name": "General appearance",
+      "value": "pale, clammy"
+    },
+    {
+      "kind": "exam",
+      "name": "Jugular venous pressure",
+      "value": "raised, 6 cm"
+    },
+    {
+      "kind": "exam",
+      "name": "Lung auscultation",
+      "value": "clear, no crackles"
+    },
+    {
+      "kind": "exam",
+      "name": "Heart sounds",
+      "value": "normal, no murmur"
+    },
+    {
+      "kind": "ecg",
+      "name": "12-lead ECG",
+      "value": "sinus bradycardia; ST elevation 3 mm in II, III and aVF with reciprocal ST depression in I and aVL"
+    },
+    {
+      "kind": "ecg",
+      "name": "Right-sided ECG leads",
+      "value": "ST elevation in V4R"
+    },
+    {
+      "kind": "lab",
+      "name": "High-sensitivity troponin T",
+      "value": "180 ng/L"
+    },
+    {
+      "kind": "lab",
+      "name": "Glucose",
+      "value": "11.2 mmol/L"
+    },
+    {
+      "kind": "lab",
+      "name": "Potassium (K+)",
+      "value": "4.1 mmol/L"
+    },
+    {
+      "kind": "lab",
+      "name": "Creatinine",
+      "value": "98 µmol/L"
+    },
+    {
+      "kind": "imaging",
+      "name": "Chest X-ray",
+      "value": "normal heart size, no pulmonary oedema"
+    }
+  ],
+  "diagnosis_options": [
+    {
+      "label": "Acute inferior STEMI with right ventricular involvement",
+      "points": 10,
+      "explanation": "ST elevation in II, III and aVF with reciprocal depression in I and aVL, plus ST elevation in V4R and hypotension with raised JVP, indicate an acute inferior STEMI with right ventricular infarction."
+    },
+    {
+      "label": "NSTEMI",
+      "points": 3,
+      "explanation": "Partially right: this is an acute myocardial infarction, but the persistent ST elevation defines STEMI rather than NSTEMI."
+    },
+    {
+      "label": "Aortic dissection",
+      "points": 0,
+      "explanation": "Considered as a differential, but the ECG pattern of inferior ST elevation with RV involvement and the clinical picture fit an inferior STEMI; no supporting features of dissection are given."
+    },
+    {
+      "label": "Acute pericarditis",
+      "points": 0,
+      "explanation": "Considered as a differential; pericarditis typically gives diffuse ST elevation without reciprocal depression or territorial distribution, unlike this case."
+    },
+    {
+      "label": "Pulmonary embolism",
+      "points": 0,
+      "explanation": "Considered as a differential; the inferior ST elevation with right ventricular lead involvement and raised JVP with clear lungs are explained by right ventricular infarction rather than PE."
+    }
+  ],
+  "management_options": [
+    {
+      "label": "Aspirin 300 mg loading dose",
+      "points": 5,
+      "explanation": "Essential antiplatelet therapy in acute STEMI."
+    },
+    {
+      "label": "Immediate transfer for primary PCI",
+      "points": 5,
+      "explanation": "Essential reperfusion strategy for acute STEMI."
+    },
+    {
+      "label": "IV fluid bolus for hypotension",
+      "points": 5,
+      "explanation": "Essential: the right ventricular infarct is preload-dependent, so volume loading supports cardiac output and blood pressure."
+    },
+    {
+      "label": "P2Y12 inhibitor loading (ticagrelor or clopidogrel)",
+      "points": 3,
+      "explanation": "Reasonable and indicated as part of dual antiplatelet therapy, though less immediately critical than aspirin and reperfusion."
+    },
+    {
+      "label": "Sublingual nitroglycerin",
+      "points": -5,
+      "explanation": "Harmful here: nitrates precipitate profound hypotension in right ventricular infarction."
+    },
+    {
+      "label": "Morphine as first-line analgesia",
+      "points": -5,
+      "explanation": "Avoid: harmful in this setting, as it can worsen hypotension in right ventricular infarction."
+    }
+  ]
+}

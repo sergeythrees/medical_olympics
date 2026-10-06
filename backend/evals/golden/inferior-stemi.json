@@ -1,0 +1,35 @@
+{
+  "title": "Crushing chest pain at the dacha",
+  "patient": {"age": 64, "sex": "male"},
+  "presenting_complaint": "Central crushing chest pain radiating to the jaw for 50 minutes, started while chopping wood.",
+  "history": "Sweaty, nauseated, vomited once. Type 2 diabetes on metformin, hypertension on ramipril, smokes 20 cigarettes/day. No prior MI. No recent surgery or bleeding, no history of stroke.",
+  "vitals": {"heart_rate": 52, "systolic_bp": 92, "diastolic_bp": 58, "respiratory_rate": 20, "temperature_c": 36.6, "spo2": 95},
+  "findings": [
+    {"kind": "exam", "name": "General", "value": "Pale, clammy"},
+    {"kind": "exam", "name": "JVP", "value": "Raised at 6 cm"},
+    {"kind": "exam", "name": "Lungs", "value": "Clear, no crackles"},
+    {"kind": "exam", "name": "Heart sounds", "value": "Normal, no murmur"},
+    {"kind": "ecg", "name": "ECG", "value": "Sinus bradycardia, ST elevation 3 mm in II, III, aVF with reciprocal ST depression in I and aVL"},
+    {"kind": "ecg", "name": "Right-sided ECG leads", "value": "ST elevation in V4R"},
+    {"kind": "lab", "name": "High-sensitivity troponin T", "value": "180 ng/L"},
+    {"kind": "lab", "name": "Glucose", "value": "11.2 mmol/L"},
+    {"kind": "lab", "name": "Potassium", "value": "4.1 mmol/L"},
+    {"kind": "lab", "name": "Creatinine", "value": "98 µmol/L"},
+    {"kind": "imaging", "name": "Chest X-ray", "value": "Normal heart size, no pulmonary oedema"}
+  ],
+  "diagnosis_options": [
+    {"label": "Acute inferior STEMI with right ventricular involvement", "points": 10, "explanation": null},
+    {"label": "Aortic dissection", "points": 0, "explanation": null},
+    {"label": "Acute pericarditis", "points": 0, "explanation": null},
+    {"label": "NSTEMI", "points": 3, "explanation": "Acute MI, but the ECG shows ST elevation."},
+    {"label": "Pulmonary embolism", "points": 0, "explanation": null}
+  ],
+  "management_options": [
+    {"label": "Aspirin 300 mg loading dose", "points": 5, "explanation": null},
+    {"label": "Immediate transfer for primary PCI", "points": 5, "explanation": null},
+    {"label": "IV fluid bolus for hypotension", "points": 5, "explanation": "RV infarction is preload-dependent."},
+    {"label": "P2Y12 inhibitor loading (ticagrelor or clopidogrel)", "points": 3, "explanation": null},
+    {"label": "Sublingual nitroglycerin", "points": -5, "explanation": "Precipitates profound hypotension in RV infarction."},
+    {"label": "Morphine as first-line analgesia", "points": -5, "explanation": null}
+  ]
+}

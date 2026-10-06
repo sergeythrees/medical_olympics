@@ -1,0 +1,128 @@
+{
+  "title": "Shortness of breath at 34 weeks",
+  "patient": {
+    "age": 31,
+    "sex": "female"
+  },
+  "presenting_complaint": "Sudden shortness of breath and right-sided pleuritic chest pain that began 3 hours ago while she was walking upstairs.",
+  "history": "G2P1, 34 weeks pregnant. The pregnancy has been uncomplicated. She flew back from a family visit (9-hour flight) five days ago. No haemoptysis, no fever. She denies calf pain or leg swelling. No previous VTE, no known thrombophilia, non-smoker, takes only prenatal vitamins.",
+  "vitals": {
+    "heart_rate": 118,
+    "systolic_bp": 104,
+    "diastolic_bp": 68,
+    "respiratory_rate": 26,
+    "temperature_c": 37.1,
+    "spo2": 91
+  },
+  "findings": [
+    {
+      "kind": "exam",
+      "name": "General examination",
+      "value": "Alert, anxious, speaking in short sentences"
+    },
+    {
+      "kind": "exam",
+      "name": "Chest auscultation",
+      "value": "Clear, no wheeze"
+    },
+    {
+      "kind": "exam",
+      "name": "Leg examination",
+      "value": "No oedema, calves soft and non-tender"
+    },
+    {
+      "kind": "ecg",
+      "name": "ECG",
+      "value": "Sinus tachycardia 118/min, S1Q3T3 pattern, T-wave inversion V1–V3"
+    },
+    {
+      "kind": "lab",
+      "name": "Arterial blood gas on air",
+      "value": "pO2 62 mmHg, pCO2 29 mmHg, pH 7.47"
+    },
+    {
+      "kind": "lab",
+      "name": "D-dimer",
+      "value": "3.8 mg/L (of limited value in the third trimester)"
+    },
+    {
+      "kind": "lab",
+      "name": "Troponin I",
+      "value": "0.03 ng/mL (normal)"
+    },
+    {
+      "kind": "imaging",
+      "name": "Compression ultrasound of both legs",
+      "value": "No DVT"
+    },
+    {
+      "kind": "imaging",
+      "name": "Bedside echocardiography",
+      "value": "Dilated right ventricle, normal LV function"
+    },
+    {
+      "kind": "imaging",
+      "name": "CTPA (with abdominal shielding)",
+      "value": "Filling defects in the right lower lobe segmental arteries"
+    }
+  ],
+  "diagnosis_options": [
+    {
+      "label": "Pulmonary embolism",
+      "points": 10,
+      "explanation": "Sudden dyspnoea and pleuritic chest pain after a 9-hour flight in the third trimester, with tachycardia, hypoxaemia, S1Q3T3 with T-wave inversion V1–V3, dilated right ventricle and CTPA showing filling defects in the right lower lobe segmental arteries."
+    },
+    {
+      "label": "Peripartum cardiomyopathy",
+      "points": 0,
+      "explanation": "Would typically present with progressive heart failure and left ventricular dysfunction; here LV function is normal and CTPA confirms pulmonary embolism."
+    },
+    {
+      "label": "Community-acquired pneumonia",
+      "points": 0,
+      "explanation": "No fever, no cough, chest clear on auscultation and CTPA shows filling defects rather than consolidation."
+    },
+    {
+      "label": "Amniotic fluid embolism",
+      "points": 0,
+      "explanation": "Usually occurs in labour or immediately postpartum with cardiovascular collapse, seizures and coagulopathy, which are absent here."
+    },
+    {
+      "label": "Spontaneous pneumothorax",
+      "points": 0,
+      "explanation": "Chest auscultation is clear and the CTPA demonstrates arterial filling defects, not pneumothorax."
+    }
+  ],
+  "management_options": [
+    {
+      "label": "Therapeutic low-molecular-weight heparin, weight-adjusted",
+      "points": 5,
+      "explanation": "Anticoagulation is the essential treatment for confirmed pulmonary embolism in pregnancy; LMWH is the preferred agent."
+    },
+    {
+      "label": "Oxygen to keep SpO2 at 94% or above",
+      "points": 5,
+      "explanation": "Essential supportive measure given hypoxaemia (SpO2 91% on room air) and the need to maintain fetal oxygenation."
+    },
+    {
+      "label": "Urgent obstetric review and fetal monitoring",
+      "points": 5,
+      "explanation": "Essential in a third-trimester pregnancy with a maternal thromboembolic emergency."
+    },
+    {
+      "label": "Warfarin",
+      "points": -5,
+      "explanation": "Contraindicated in pregnancy due to teratogenicity; harmful."
+    },
+    {
+      "label": "Rivaroxaban or another DOAC",
+      "points": -5,
+      "explanation": "Contraindicated in pregnancy; harmful."
+    },
+    {
+      "label": "Systemic thrombolysis",
+      "points": -5,
+      "explanation": "Not indicated in a haemodynamically stable patient and harmful."
+    }
+  ]
+}

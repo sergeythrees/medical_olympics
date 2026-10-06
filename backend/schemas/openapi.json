@@ -1,0 +1,953 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Clinical Cases API",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/health": {
+      "get": {
+        "tags": [
+          "ops"
+        ],
+        "summary": "Health",
+        "operationId": "health_health_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "type": "object",
+                  "title": "Response Health Health Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cases": {
+      "get": {
+        "tags": [
+          "cases"
+        ],
+        "summary": "List Cases",
+        "operationId": "list_cases_cases_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/CaseSummary"
+                  },
+                  "type": "array",
+                  "title": "Response List Cases Cases Get"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "cases"
+        ],
+        "summary": "Create Case",
+        "operationId": "create_case_cases_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CaseIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CasePublic"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cases/{case_id}": {
+      "get": {
+        "tags": [
+          "cases"
+        ],
+        "summary": "Get Case",
+        "description": "The case as a participant sees it: no points, no explanations.",
+        "operationId": "get_case_cases__case_id__get",
+        "parameters": [
+          {
+            "name": "case_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Case Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CasePublic"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cases/{case_id}/submissions": {
+      "post": {
+        "tags": [
+          "scoring"
+        ],
+        "summary": "Submit Answers",
+        "operationId": "submit_answers_cases__case_id__submissions_post",
+        "parameters": [
+          {
+            "name": "case_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Case Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SubmissionIn"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubmissionResult"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/submissions/{submission_id}": {
+      "get": {
+        "tags": [
+          "scoring"
+        ],
+        "summary": "Get Submission",
+        "operationId": "get_submission_submissions__submission_id__get",
+        "parameters": [
+          {
+            "name": "submission_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Submission Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubmissionResult"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cases/{case_id}/leaderboard": {
+      "get": {
+        "tags": [
+          "scoring"
+        ],
+        "summary": "Leaderboard",
+        "operationId": "leaderboard_cases__case_id__leaderboard_get",
+        "parameters": [
+          {
+            "name": "case_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Case Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/LeaderboardEntry"
+                  },
+                  "title": "Response Leaderboard Cases  Case Id  Leaderboard Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/extract": {
+      "post": {
+        "tags": [
+          "llm"
+        ],
+        "summary": "Extract",
+        "description": "Structure a raw clinical text with an LLM. Returns a draft for the author to review\nand then POST to /cases; nothing is saved here.",
+        "operationId": "extract_extract_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExtractIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CaseIn"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CaseIn": {
+        "properties": {
+          "title": {
+            "type": "string",
+            "maxLength": 300,
+            "minLength": 1,
+            "title": "Title"
+          },
+          "patient": {
+            "$ref": "#/components/schemas/Patient"
+          },
+          "presenting_complaint": {
+            "type": "string",
+            "maxLength": 4000,
+            "minLength": 1,
+            "title": "Presenting Complaint"
+          },
+          "history": {
+            "type": "string",
+            "maxLength": 4000,
+            "minLength": 1,
+            "title": "History",
+            "description": "History of present illness, past history, medications."
+          },
+          "vitals": {
+            "$ref": "#/components/schemas/Vitals"
+          },
+          "findings": {
+            "items": {
+              "$ref": "#/components/schemas/Finding"
+            },
+            "type": "array",
+            "maxItems": 100,
+            "title": "Findings"
+          },
+          "diagnosis_options": {
+            "items": {
+              "$ref": "#/components/schemas/DiagnosisOption"
+            },
+            "type": "array",
+            "maxItems": 20,
+            "minItems": 2,
+            "title": "Diagnosis Options"
+          },
+          "management_options": {
+            "items": {
+              "$ref": "#/components/schemas/ManagementOption"
+            },
+            "type": "array",
+            "maxItems": 30,
+            "minItems": 1,
+            "title": "Management Options"
+          }
+        },
+        "type": "object",
+        "required": [
+          "title",
+          "patient",
+          "presenting_complaint",
+          "history",
+          "diagnosis_options",
+          "management_options"
+        ],
+        "title": "CaseIn",
+        "description": "A clinical case with answer key, as written by a case author."
+      },
+      "CasePublic": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "presenting_complaint": {
+            "type": "string",
+            "title": "Presenting Complaint"
+          },
+          "patient": {
+            "$ref": "#/components/schemas/Patient"
+          },
+          "history": {
+            "type": "string",
+            "title": "History"
+          },
+          "vitals": {
+            "$ref": "#/components/schemas/Vitals"
+          },
+          "findings": {
+            "items": {
+              "$ref": "#/components/schemas/Finding"
+            },
+            "type": "array",
+            "title": "Findings"
+          },
+          "diagnosis_options": {
+            "items": {
+              "$ref": "#/components/schemas/OptionPublic"
+            },
+            "type": "array",
+            "title": "Diagnosis Options"
+          },
+          "management_options": {
+            "items": {
+              "$ref": "#/components/schemas/OptionPublic"
+            },
+            "type": "array",
+            "title": "Management Options"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "presenting_complaint",
+          "patient",
+          "history",
+          "vitals",
+          "findings",
+          "diagnosis_options",
+          "management_options"
+        ],
+        "title": "CasePublic"
+      },
+      "CaseSummary": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "presenting_complaint": {
+            "type": "string",
+            "title": "Presenting Complaint"
+          },
+          "patient": {
+            "$ref": "#/components/schemas/Patient"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "presenting_complaint",
+          "patient"
+        ],
+        "title": "CaseSummary"
+      },
+      "DiagnosisOption": {
+        "properties": {
+          "label": {
+            "type": "string",
+            "maxLength": 300,
+            "minLength": 1,
+            "title": "Label"
+          },
+          "points": {
+            "type": "integer",
+            "maximum": 10.0,
+            "minimum": 0.0,
+            "title": "Points",
+            "description": "10 = correct diagnosis, 1-5 = partially correct, 0 = wrong."
+          },
+          "explanation": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 2000
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Explanation",
+            "description": "Why it is (in)correct. Shown after answering."
+          }
+        },
+        "type": "object",
+        "required": [
+          "label",
+          "points"
+        ],
+        "title": "DiagnosisOption"
+      },
+      "ExtractIn": {
+        "properties": {
+          "text": {
+            "type": "string",
+            "maxLength": 50000,
+            "minLength": 20,
+            "title": "Text"
+          }
+        },
+        "type": "object",
+        "required": [
+          "text"
+        ],
+        "title": "ExtractIn"
+      },
+      "Finding": {
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "exam",
+              "lab",
+              "imaging",
+              "ecg",
+              "other"
+            ],
+            "title": "Kind"
+          },
+          "name": {
+            "type": "string",
+            "maxLength": 300,
+            "minLength": 1,
+            "title": "Name",
+            "description": "What was examined or measured, e.g. 'Troponin I'."
+          },
+          "value": {
+            "type": "string",
+            "maxLength": 300,
+            "minLength": 1,
+            "title": "Value",
+            "description": "Result with units, e.g. '2.1 ng/mL' or 'ST elevation II, III, aVF'."
+          }
+        },
+        "type": "object",
+        "required": [
+          "kind",
+          "name",
+          "value"
+        ],
+        "title": "Finding"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "LeaderboardEntry": {
+        "properties": {
+          "rank": {
+            "type": "integer",
+            "title": "Rank"
+          },
+          "participant": {
+            "type": "string",
+            "title": "Participant"
+          },
+          "score": {
+            "type": "integer",
+            "title": "Score"
+          },
+          "max_score": {
+            "type": "integer",
+            "title": "Max Score"
+          },
+          "submitted_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Submitted At"
+          }
+        },
+        "type": "object",
+        "required": [
+          "rank",
+          "participant",
+          "score",
+          "max_score",
+          "submitted_at"
+        ],
+        "title": "LeaderboardEntry"
+      },
+      "ManagementOption": {
+        "properties": {
+          "label": {
+            "type": "string",
+            "maxLength": 300,
+            "minLength": 1,
+            "title": "Label"
+          },
+          "points": {
+            "type": "integer",
+            "maximum": 10.0,
+            "minimum": -10.0,
+            "title": "Points",
+            "description": "Positive = indicated (5 essential), 0 = neutral, negative = harmful (-5)."
+          },
+          "explanation": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 2000
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Explanation"
+          }
+        },
+        "type": "object",
+        "required": [
+          "label",
+          "points"
+        ],
+        "title": "ManagementOption"
+      },
+      "OptionPublic": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "label": {
+            "type": "string",
+            "title": "Label"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "label"
+        ],
+        "title": "OptionPublic"
+      },
+      "Patient": {
+        "properties": {
+          "age": {
+            "type": "integer",
+            "maximum": 120.0,
+            "minimum": 0.0,
+            "title": "Age",
+            "description": "Age in full years."
+          },
+          "sex": {
+            "type": "string",
+            "enum": [
+              "female",
+              "male"
+            ],
+            "title": "Sex"
+          }
+        },
+        "type": "object",
+        "required": [
+          "age",
+          "sex"
+        ],
+        "title": "Patient"
+      },
+      "ScoredOption": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "diagnosis",
+              "management"
+            ],
+            "title": "Kind"
+          },
+          "label": {
+            "type": "string",
+            "title": "Label"
+          },
+          "points": {
+            "type": "integer",
+            "title": "Points"
+          },
+          "explanation": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Explanation"
+          },
+          "chosen": {
+            "type": "boolean",
+            "title": "Chosen"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "kind",
+          "label",
+          "points",
+          "explanation",
+          "chosen"
+        ],
+        "title": "ScoredOption"
+      },
+      "SubmissionIn": {
+        "properties": {
+          "participant": {
+            "type": "string",
+            "maxLength": 300,
+            "minLength": 1,
+            "title": "Participant"
+          },
+          "diagnosis_option_id": {
+            "type": "integer",
+            "title": "Diagnosis Option Id"
+          },
+          "management_option_ids": {
+            "items": {
+              "type": "integer"
+            },
+            "type": "array",
+            "maxItems": 30,
+            "title": "Management Option Ids"
+          }
+        },
+        "type": "object",
+        "required": [
+          "participant",
+          "diagnosis_option_id"
+        ],
+        "title": "SubmissionIn"
+      },
+      "SubmissionResult": {
+        "properties": {
+          "submission_id": {
+            "type": "integer",
+            "title": "Submission Id"
+          },
+          "case_id": {
+            "type": "integer",
+            "title": "Case Id"
+          },
+          "participant": {
+            "type": "string",
+            "title": "Participant"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At"
+          },
+          "score": {
+            "type": "integer",
+            "title": "Score"
+          },
+          "max_score": {
+            "type": "integer",
+            "title": "Max Score"
+          },
+          "diagnosis_correct": {
+            "type": "boolean",
+            "title": "Diagnosis Correct"
+          },
+          "options": {
+            "items": {
+              "$ref": "#/components/schemas/ScoredOption"
+            },
+            "type": "array",
+            "title": "Options",
+            "description": "Full answer key with the participant's choices marked."
+          }
+        },
+        "type": "object",
+        "required": [
+          "submission_id",
+          "case_id",
+          "participant",
+          "created_at",
+          "score",
+          "max_score",
+          "diagnosis_correct",
+          "options"
+        ],
+        "title": "SubmissionResult"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      },
+      "Vitals": {
+        "properties": {
+          "heart_rate": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "maximum": 300.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Heart Rate",
+            "description": "Beats per minute."
+          },
+          "systolic_bp": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "maximum": 300.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Systolic Bp",
+            "description": "mmHg."
+          },
+          "diastolic_bp": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "maximum": 200.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Diastolic Bp",
+            "description": "mmHg."
+          },
+          "respiratory_rate": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "maximum": 80.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Respiratory Rate",
+            "description": "Breaths per minute."
+          },
+          "temperature_c": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 45.0,
+                "minimum": 25.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Temperature C",
+            "description": "Degrees Celsius."
+          },
+          "spo2": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "maximum": 100.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Spo2",
+            "description": "Oxygen saturation, %."
+          }
+        },
+        "type": "object",
+        "title": "Vitals",
+        "description": "Vital signs at presentation. Null when not stated in the source."
+      }
+    }
+  }
+}

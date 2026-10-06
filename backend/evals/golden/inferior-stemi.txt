@@ -1,0 +1,26 @@
+Crushing chest pain at the dacha
+
+Man, 64, brought by ambulance with central crushing chest pain radiating to the jaw for 50 minutes,
+started while chopping wood. Sweaty, nauseated, vomited once. Type 2 diabetes on metformin,
+hypertension on ramipril, smokes 20/day. No prior MI. No recent surgery or bleeding,
+no history of stroke.
+
+Obs: pulse 52, BP 92/58, resp rate 20, sats 95% on air, temp 36.6.
+Pale, clammy. JVP raised at 6 cm, lungs clear — no crackles. Heart sounds normal, no murmur.
+
+ECG: ST elevation 3 mm in II, III and aVF with reciprocal ST depression in I and aVL;
+right-sided leads show ST elevation in V4R. Sinus bradycardia.
+High-sensitivity troponin T 180 ng/L. Glucose 11.2 mmol/L, K+ 4.1 mmol/L, creatinine 98 µmol/L.
+Chest X-ray: normal heart size, no pulmonary oedema.
+
+Key:
+Correct diagnosis — acute inferior STEMI with right ventricular involvement.
+Alternatives offered: aortic dissection, acute pericarditis, NSTEMI (partially right — acute MI but wrong type, 3 points),
+pulmonary embolism.
+What to do:
+aspirin 300 mg loading — essential;
+immediate transfer for primary PCI — essential;
+IV fluid bolus for hypotension (RV infarct is preload-dependent) — essential;
+P2Y12 inhibitor loading (ticagrelor or clopidogrel) — 3 points;
+sublingual nitroglycerin — harmful here, precipitates profound hypotension in RV infarction;
+morphine as first-line analgesia — avoid, harmful.

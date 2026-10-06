@@ -1,0 +1,128 @@
+{
+  "title": "Crushing chest pain at the dacha",
+  "patient": {
+    "age": 64,
+    "sex": "male"
+  },
+  "presenting_complaint": "Central crushing chest pain radiating to the jaw for 50 minutes, started while chopping wood, accompanied by sweating, nausea and one episode of vomiting.",
+  "history": "Type 2 diabetes on metformin. Hypertension on ramipril. Smokes 20 cigarettes/day. No prior MI. No recent surgery or bleeding, no history of stroke.",
+  "vitals": {
+    "heart_rate": 52,
+    "systolic_bp": 92,
+    "diastolic_bp": 58,
+    "respiratory_rate": 20,
+    "temperature_c": 36.6,
+    "spo2": 95
+  },
+  "findings": [
+    {
+      "kind": "exam",
+      "name": "General appearance",
+      "value": "pale, clammy"
+    },
+    {
+      "kind": "exam",
+      "name": "JVP",
+      "value": "raised at 6 cm"
+    },
+    {
+      "kind": "exam",
+      "name": "Lungs",
+      "value": "clear, no crackles"
+    },
+    {
+      "kind": "exam",
+      "name": "Heart sounds",
+      "value": "normal, no murmur"
+    },
+    {
+      "kind": "ecg",
+      "name": "ECG",
+      "value": "ST elevation 3 mm in II, III and aVF with reciprocal ST depression in I and aVL; right-sided leads show ST elevation in V4R; sinus bradycardia"
+    },
+    {
+      "kind": "lab",
+      "name": "High-sensitivity troponin T",
+      "value": "180 ng/L"
+    },
+    {
+      "kind": "lab",
+      "name": "Glucose",
+      "value": "11.2 mmol/L"
+    },
+    {
+      "kind": "lab",
+      "name": "Potassium (K+)",
+      "value": "4.1 mmol/L"
+    },
+    {
+      "kind": "lab",
+      "name": "Creatinine",
+      "value": "98 µmol/L"
+    },
+    {
+      "kind": "imaging",
+      "name": "Chest X-ray",
+      "value": "normal heart size, no pulmonary oedema"
+    }
+  ],
+  "diagnosis_options": [
+    {
+      "label": "Acute inferior STEMI with right ventricular involvement",
+      "points": 10,
+      "explanation": "Correct diagnosis: inferior STEMI (ST elevation in II, III, aVF with reciprocal changes and right-sided V4R elevation) with right ventricular infarction."
+    },
+    {
+      "label": "NSTEMI",
+      "points": 3,
+      "explanation": "Partially right — acute MI but wrong type; the ECG shows STEMI, not NSTEMI."
+    },
+    {
+      "label": "Aortic dissection",
+      "points": 0,
+      "explanation": "Alternative diagnosis offered; not supported by the clinical picture and ECG findings."
+    },
+    {
+      "label": "Acute pericarditis",
+      "points": 0,
+      "explanation": "Alternative diagnosis offered; the regional ST elevation with reciprocal depression and troponin rise favour infarction, not pericarditis."
+    },
+    {
+      "label": "Pulmonary embolism",
+      "points": 0,
+      "explanation": "Alternative diagnosis offered; the ECG and clinical findings point to inferior STEMI, not pulmonary embolism."
+    }
+  ],
+  "management_options": [
+    {
+      "label": "Aspirin 300 mg loading",
+      "points": 5,
+      "explanation": "Essential: immediate antiplatelet therapy in suspected acute MI."
+    },
+    {
+      "label": "Immediate transfer for primary PCI",
+      "points": 5,
+      "explanation": "Essential: reperfusion therapy for STEMI."
+    },
+    {
+      "label": "IV fluid bolus for hypotension (RV infarct is preload-dependent)",
+      "points": 5,
+      "explanation": "Essential: right ventricular infarction is preload-dependent, so fluid bolus is indicated for hypotension."
+    },
+    {
+      "label": "P2Y12 inhibitor loading (ticagrelor or clopidogrel)",
+      "points": 3,
+      "explanation": "Reasonable and indicated as part of dual antiplatelet therapy, but not the highest-priority action compared with aspirin and reperfusion."
+    },
+    {
+      "label": "Sublingual nitroglycerin",
+      "points": -5,
+      "explanation": "Harmful here: nitroglycerin precipitates profound hypotension in right ventricular infarction."
+    },
+    {
+      "label": "Morphine as first-line analgesia",
+      "points": -5,
+      "explanation": "Avoid/harmful: morphine can worsen hypotension in right ventricular infarction."
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "title": "Worst headache of her life",
+  "patient": {"age": 48, "sex": "female"},
+  "presenting_complaint": "Sudden severe occipital headache peaking within a minute, started 2 hours ago at the gym, with vomiting.",
+  "history": "Teacher. Headache \"like being hit with a bat\", vomited twice. No loss of consciousness, no seizure, no head trauma. Poorly controlled hypertension on amlodipine. Smoker. Mother died of a brain bleed at 52. Not on anticoagulants or antiplatelets.",
+  "vitals": {"heart_rate": 64, "systolic_bp": 182, "diastolic_bp": 104, "respiratory_rate": 16, "temperature_c": 37.4, "spo2": 98},
+  "findings": [
+    {"kind": "exam", "name": "GCS", "value": "15"},
+    {"kind": "exam", "name": "Photophobia", "value": "Present"},
+    {"kind": "exam", "name": "Neck stiffness", "value": "Present"},
+    {"kind": "exam", "name": "Pupils", "value": "Equal and reactive"},
+    {"kind": "exam", "name": "Focal neurological deficit", "value": "None"},
+    {"kind": "exam", "name": "Kernig sign", "value": "Negative"},
+    {"kind": "exam", "name": "Fundoscopy", "value": "No papilloedema"},
+    {"kind": "imaging", "name": "Non-contrast head CT", "value": "Hyperdense blood in basal cisterns and Sylvian fissures"},
+    {"kind": "imaging", "name": "CT angiography", "value": "7 mm aneurysm of the anterior communicating artery"},
+    {"kind": "lab", "name": "Platelets", "value": "245 ×10^9/L"},
+    {"kind": "lab", "name": "INR", "value": "1.0"},
+    {"kind": "lab", "name": "Sodium", "value": "139 mmol/L"}
+  ],
+  "diagnosis_options": [
+    {"label": "Subarachnoid haemorrhage from ruptured anterior communicating artery aneurysm", "points": 10, "explanation": null},
+    {"label": "Migraine", "points": 0, "explanation": null},
+    {"label": "Bacterial meningitis", "points": 0, "explanation": null},
+    {"label": "Hypertensive encephalopathy", "points": 0, "explanation": null},
+    {"label": "Reversible cerebral vasoconstriction syndrome", "points": 0, "explanation": null}
+  ],
+  "management_options": [
+    {"label": "Urgent neurosurgical / neurointerventional referral for aneurysm securing (coiling or clipping)", "points": 5, "explanation": null},
+    {"label": "Oral nimodipine 60 mg every 4 hours", "points": 5, "explanation": null},
+    {"label": "Control systolic BP below 160 mmHg with titratable IV agent", "points": 5, "explanation": null},
+    {"label": "Analgesia and antiemetic", "points": 2, "explanation": null},
+    {"label": "Lumbar puncture", "points": -5, "explanation": "Not needed after a diagnostic CT and risks rebleeding."},
+    {"label": "Aspirin", "points": -5, "explanation": "Harmful with an unsecured aneurysm."}
+  ]
+}

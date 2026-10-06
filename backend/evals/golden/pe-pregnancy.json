@@ -1,0 +1,34 @@
+{
+  "title": "Shortness of breath at 34 weeks",
+  "patient": {"age": 31, "sex": "female"},
+  "presenting_complaint": "Sudden shortness of breath and right-sided pleuritic chest pain for 3 hours at 34 weeks of pregnancy.",
+  "history": "G2P1, 34 weeks pregnant, uncomplicated pregnancy. Symptoms began while walking upstairs. No haemoptysis, no fever, no calf pain or leg swelling. 9-hour flight five days ago. No previous VTE, no known thrombophilia, non-smoker. Medications: prenatal vitamins only.",
+  "vitals": {"heart_rate": 118, "systolic_bp": 104, "diastolic_bp": 68, "respiratory_rate": 26, "temperature_c": 37.1, "spo2": 91},
+  "findings": [
+    {"kind": "exam", "name": "General", "value": "Alert, anxious, speaking in short sentences"},
+    {"kind": "exam", "name": "Chest auscultation", "value": "Clear, no wheeze"},
+    {"kind": "exam", "name": "Legs", "value": "No oedema, calves soft and non-tender"},
+    {"kind": "ecg", "name": "ECG", "value": "Sinus tachycardia 118/min, S1Q3T3, T-wave inversion V1-V3"},
+    {"kind": "lab", "name": "ABG on air", "value": "pO2 62 mmHg, pCO2 29 mmHg, pH 7.47"},
+    {"kind": "lab", "name": "D-dimer", "value": "3.8 mg/L"},
+    {"kind": "lab", "name": "Troponin I", "value": "0.03 ng/mL (normal)"},
+    {"kind": "imaging", "name": "Compression ultrasound of both legs", "value": "No DVT"},
+    {"kind": "imaging", "name": "Bedside echo", "value": "Dilated right ventricle, normal LV function"},
+    {"kind": "imaging", "name": "CTPA", "value": "Filling defects in right lower lobe segmental arteries"}
+  ],
+  "diagnosis_options": [
+    {"label": "Pulmonary embolism", "points": 10, "explanation": null},
+    {"label": "Peripartum cardiomyopathy", "points": 0, "explanation": null},
+    {"label": "Community-acquired pneumonia", "points": 0, "explanation": null},
+    {"label": "Amniotic fluid embolism", "points": 0, "explanation": null},
+    {"label": "Spontaneous pneumothorax", "points": 0, "explanation": null}
+  ],
+  "management_options": [
+    {"label": "Therapeutic low-molecular-weight heparin, weight-adjusted", "points": 5, "explanation": null},
+    {"label": "Oxygen to keep SpO2 at 94% or above", "points": 5, "explanation": null},
+    {"label": "Urgent obstetric review and fetal monitoring", "points": 5, "explanation": null},
+    {"label": "Warfarin", "points": -5, "explanation": "Contraindicated in pregnancy (teratogenic)."},
+    {"label": "Rivaroxaban or another DOAC", "points": -5, "explanation": "Contraindicated in pregnancy."},
+    {"label": "Systemic thrombolysis", "points": -5, "explanation": "Not indicated in a haemodynamically stable patient."}
+  ]
+}
